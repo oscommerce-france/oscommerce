@@ -4,4 +4,4 @@
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
 cfg_account_newsletter_title = Newsletter
-cfg_account_newsletter_description = Ask for a newsletter subscription.
+cfg_account_newsletter_description = Demande pour l'inscription à la newsletter.

@@ -4,4 +4,4 @@
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
 cfg_account_state_title = State
-cfg_account_state_description = Ask for or require the customers state.
+cfg_account_state_description = Demander l'état du client. (sobre, alcoolisé ?)
