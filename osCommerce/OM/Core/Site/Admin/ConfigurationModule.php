@@ -13,37 +13,44 @@
   use osCommerce\OM\Core\Registry;
 
   class ConfigurationModule {
+    protected $_key;
     protected $_module;
 
-    public function __construct($module = null) {
+    public function __construct($key, $module = null) {
+      $this->_key = $key;
+
       if ( !isset($module) ) {
-        $module = array_slice(explode('\\', get_called_class()), -2, 1);
+        $module = array_slice(explode('\\', get_called_class()), -1);
         $module = $module[0];
       }
 
       $this->_module = $module;
 
-      Registry::get('Language')->loadIniFile('Modules/Configuration/' . $this->_module . '.php');
+      Registry::get('Language')->loadIniFile('modules/Configuration/' . $this->_module . '.php');
     }
 
     public function getKey() {
-      return strtoupper($this->_module);
+      return $this->_key;
     }
 
     public function get() {
+      return $this->getRaw();
+    }
+
+    public function getRaw() {
       return constant($this->getKey());
     }
 
     public function getTitle() {
-      return OSCOM::getDef('cfg_' . $this->_module . '_title');
+      return OSCOM::getDef('cfg_' . strtolower($this->_key) . '_title');
     }
 
     public function getDescription() {
-      return OSCOM::getDef('cfg_' . $this->_module . '_description');
+      return OSCOM::getDef('cfg_' . strtolower($this->_key) . '_description');
     }
 
     public function getField() {
-      return HTML::inputField('cfg[' . $this->_module . ']', $this->get());
+      return HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw());
     }
   }
 ?>

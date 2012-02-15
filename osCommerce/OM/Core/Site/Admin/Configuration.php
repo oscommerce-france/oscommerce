@@ -9,16 +9,25 @@
   namespace osCommerce\OM\Core\Site\Admin;
 
   class Configuration extends \osCommerce\OM\Core\Site\Shop\Configuration {
-    static public function initialize($module) {
-      $module = strtolower($module);
+    static public function initialize($key) {
+      $module = static::getClassName($key);
 
       if ( class_exists('osCommerce\\OM\\Core\\Site\\Admin\\Module\\Configuration\\' . $module) ) {
         $ns_module = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Configuration\\' . $module;
 
-        return new $ns_module();
+        return new $ns_module($key);
       }
 
-      return new ConfigurationModule($module);
+      return new ConfigurationModule($key, $module);
+    }
+
+    static public function getClassName($string) {
+      $string = strtolower($string);
+      $string = str_replace(array('-', '_'), ' ', $string);
+      $string = ucwords($string);
+      $string = str_replace(' ', '', $string);
+
+      return $string;
     }
   }
 ?>
