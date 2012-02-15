@@ -2,7 +2,7 @@
 /**
  * osCommerce Online Merchant
  * 
- * @copyright Copyright (c) 2011 osCommerce; http://www.oscommerce.com
+ * @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
@@ -24,9 +24,7 @@
       Registry::set('Cache', new Cache());
       Registry::set('PDO', PDO::initialize());
 
-      foreach ( OSCOM::callDB('Shop\GetConfiguration', null, 'Site') as $param ) {
-        define($param['cfgkey'], $param['cfgvalue']);
-      }
+      Configuration::load();
 
       Registry::set('Session', Session::load('adminSid'));
       Registry::get('Session')->start();
