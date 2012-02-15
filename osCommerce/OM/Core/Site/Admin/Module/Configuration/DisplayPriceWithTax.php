@@ -32,7 +32,7 @@
                             array('id' => '1',
                                   'text' => OSCOM::getDef('parameter_true')));
 
-      return HTML::radioField('configuration[' . $this->_module . ']', $values_array, $this->getRaw());
+      return '<h4>' . $this->getTitle() . '</h4>' . HTML::radioField('configuration[' . $this->_module . ']', $values_array, $this->getRaw());
     }
   }
 ?>

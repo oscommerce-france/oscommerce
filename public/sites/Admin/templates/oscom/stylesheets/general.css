@@ -318,6 +318,17 @@ a:hover {
   font-size: 12px;
 }
 
+.dataForm .sliderContainer {
+  display: block;
+  width: 40%;
+  margin: 15px;
+}
+
+.dataForm .sliderContainer .sliderValue {
+  float: right;
+  font-weight: bold;
+}
+
 .dataForm fieldset {
   margin: 0px 10px 10px 15px;
   padding: 5px 0 0 0;
@@ -329,6 +340,15 @@ a:hover {
   display: block;
   margin: 5px 0 5px 0;
   font-weight: bold;
+}
+
+.dataForm fieldset h4 { /* label equivalent */
+  display: block;
+  margin: 5px 0 5px 0;
+  padding: 0 0 0 15px;
+  line-height: 6px;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 .dataForm fieldset legend {
