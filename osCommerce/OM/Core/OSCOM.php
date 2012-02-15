@@ -2,16 +2,11 @@
 /**
  * osCommerce Online Merchant
  * 
- * @copyright Copyright (c) 2011 osCommerce; http://www.oscommerce.com
+ * @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
   namespace osCommerce\OM\Core;
-
-  use osCommerce\OM\Core\DateTime;
-  use osCommerce\OM\Core\ErrorHandler;
-  use osCommerce\OM\Core\HTML;
-  use osCommerce\OM\Core\Registry;
 
   define('OSCOM_BASE_DIRECTORY', realpath(__DIR__ . '/../') . '/');
 
@@ -58,7 +53,7 @@
         if ( !empty($_GET) ) {
           $requested_site = HTML::sanitize(basename(key(array_slice($_GET, 0, 1, true))));
 
-          if ( static::siteExists($requested_site) ) {
+          if ( preg_match('/^[A-Z][A-Za-z0-9-_]*$/', $requested_site) && static::siteExists($requested_site) ) {
             $site = $requested_site;
           } else {
             $site = static::getDefaultSite();
