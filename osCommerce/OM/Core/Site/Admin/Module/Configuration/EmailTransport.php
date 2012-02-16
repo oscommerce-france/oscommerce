@@ -9,15 +9,45 @@
   namespace osCommerce\OM\Core\Site\Admin\Module\Configuration;
 
   use osCommerce\OM\Core\HTML;
-  use osCommerce\OM\Core\OSCOM;
 
   class EmailTransport extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+    protected $_param_sendmail;
+    protected $_param_smtp;
+
+    public function __construct($key, $module = null) {
+      parent::__construct($key, $module);
+
+      $this->_param_sendmail = 'Sendmail';
+      $this->_param_smtp = 'SMTP';
+    }
+
     public function get() {
-      return parent::get();
+      switch ( $this->getRaw() ) {
+        case 'sendmail':
+          return $this->_param_sendmail;
+
+        case 'smtp':
+          return $this->_param_smtp;
+      }
+
+      return $this->getRaw();
     }
 
     public function getField() {
-      return parent::getField();
+      $values = array(array('id' => 'sendmail',
+                            'text' => $this->_param_sendmail),
+                      array('id' => 'smtp',
+                            'text' => $this->_param_smtp));
+
+      $field = '<h4>' . $this->getTitle() . '</h4><div id="cfg' . $this->_module . '">' . HTML::radioField('configuration[' . $this->_key . ']', $values, $this->getRaw()) . '</div>';
+
+      $field .= <<<EOT
+<script>
+$('#cfg{$this->_module}').buttonset();
+</script>
+EOT;
+
+      return $field;
     }
   }
 ?>
