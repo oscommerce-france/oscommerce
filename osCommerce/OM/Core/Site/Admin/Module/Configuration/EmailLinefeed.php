@@ -9,15 +9,45 @@
   namespace osCommerce\OM\Core\Site\Admin\Module\Configuration;
 
   use osCommerce\OM\Core\HTML;
-  use osCommerce\OM\Core\OSCOM;
 
   class EmailLinefeed extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+    protected $_param_lf;
+    protected $_param_crlf;
+
+    public function __construct($key, $module = null) {
+      parent::__construct($key, $module);
+
+      $this->_param_lf = 'LF';
+      $this->_param_crlf = 'CRLF';
+    }
+
     public function get() {
-      return parent::get();
+      switch ( $this->getRaw() ) {
+        case 'LF':
+          return $this->_param_lf;
+
+        case 'CRLF':
+          return $this->_param_crlf;
+      }
+
+      return $this->getRaw();
     }
 
     public function getField() {
-      return parent::getField();
+      $values = array(array('id' => 'LF',
+                            'text' => $this->_param_lf),
+                      array('id' => 'CRLF',
+                            'text' => $this->_param_crlf));
+
+      $field = '<h4>' . $this->getTitle() . '</h4><div id="cfg' . $this->_module . '">' . HTML::radioField('configuration[' . $this->_key . ']', $values, $this->getRaw()) . '</div>';
+
+      $field .= <<<EOT
+<script>
+$('#cfg{$this->_module}').buttonset();
+</script>
+EOT;
+
+      return $field;
     }
   }
 ?>

@@ -9,15 +9,32 @@
   namespace osCommerce\OM\Core\Site\Admin\Module\Configuration;
 
   use osCommerce\OM\Core\HTML;
-  use osCommerce\OM\Core\OSCOM;
 
   class AccountLastName extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
-    public function get() {
-      return parent::get();
-    }
-
     public function getField() {
-      return parent::getField();
+      $field = '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw(), 'id="cfg' . $this->_module . '"');
+
+      $field .= <<<EOT
+<div id="sliderValue{$this->_module}" class="sliderValue">{$this->get()}</div>
+<div id="slider{$this->_module}" class="slider"></div>
+<script>
+$(function() {
+  $('#cfg{$this->_module}').hide();
+  $('#slider{$this->_module}').slider({
+    range: 'min',
+    value: $('#cfg{$this->_module}').val(),
+    min: 1,
+    max: 10,
+    slide: function(event, ui) {
+      $('#cfg{$this->_module}').val(ui.value);
+      $('#sliderValue{$this->_module}').html(ui.value);
+    }
+  });
+});
+</script>
+EOT;
+
+      return $field;
     }
   }
 ?>
