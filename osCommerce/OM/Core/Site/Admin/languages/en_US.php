@@ -22,6 +22,7 @@ default_entry = default
 parameter_true = True
 parameter_false = False
 parameter_disabled = Disabled
+parameter_required = Required
 parameter_not_required = Not Required
 parameter_optional = Optional
 parameter_none = -- None --
