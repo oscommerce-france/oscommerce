@@ -30,7 +30,7 @@
   <p><?php echo OSCOM::getDef('introduction_edit_parameter'); ?></p>
 
   <fieldset>
-    <p><label for="configuration[<?php echo $OSCOM_ObjectInfo->get('configuration_key'); ?>]"><?php echo $OSCOM_ObjectInfo->getProtected('configuration_title'); ?></label><?php echo $OSCOM_ObjectInfo->get('configuration_field'); ?></p>
+    <p><?php echo $OSCOM_ObjectInfo->get('configuration_field'); ?></p>
     <p><?php echo $OSCOM_ObjectInfo->get('configuration_description'); ?></p>
   </fieldset>
 

@@ -50,7 +50,7 @@
     }
 
     public function getField() {
-      return HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw());
+      return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw(), 'id="cfg' . $this->_module . '"');
     }
   }
 ?>

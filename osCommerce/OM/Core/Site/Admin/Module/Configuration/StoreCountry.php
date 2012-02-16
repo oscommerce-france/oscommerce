@@ -24,7 +24,7 @@
                                    'text' => $country['name']);
       }
 
-      return HTML::selectMenu('configuration[' . $this->_module . ']', $countries_array, $this->getRaw());
+      return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::selectMenu('configuration[' . $this->_module . ']', $countries_array, $this->getRaw(), 'id="cfg' . $this->_module . '"');
     }
   }
 ?>

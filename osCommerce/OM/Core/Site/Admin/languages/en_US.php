@@ -1,6 +1,6 @@
 # osCommerce Online Merchant
 #
-# @copyright Copyright (c) 2011 osCommerce; http://www.oscommerce.com
+# @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
 administration_title = osCommerce Administration Tool
@@ -21,6 +21,9 @@ default_entry = default
 
 parameter_true = True
 parameter_false = False
+parameter_disabled = Disabled
+parameter_required = Required
+parameter_not_required = Not Required
 parameter_optional = Optional
 parameter_none = -- None --
 
