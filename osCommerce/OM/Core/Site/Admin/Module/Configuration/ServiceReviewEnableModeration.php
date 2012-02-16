@@ -12,12 +12,50 @@
   use osCommerce\OM\Core\OSCOM;
 
   class ServiceReviewEnableModeration extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+    protected $_param_moderate_all;
+    protected $_param_moderate_guests;
+    protected $_param_no_moderation;
+
+    public function __construct($key, $module = null) {
+      parent::__construct($key, $module);
+
+      $this->_param_moderate_all = OSCOM::getDef('parameter_moderate_all');
+      $this->_param_moderate_guests = OSCOM::getDef('parameter_moderate_guests');
+      $this->_param_no_moderation = OSCOM::getDef('parameter_no_moderation');
+    }
+
     public function get() {
-      return parent::get();
+      switch ( $this->getRaw() ) {
+        case '1':
+          return $this->_param_moderate_all;
+
+        case '0':
+          return $this->_param_moderate_guests;
+
+        case '-1':
+          return $this->_param_no_moderation;
+      }
+
+      return $this->getRaw();
     }
 
     public function getField() {
-      return parent::getField();
+      $values = array(array('id' => '1',
+                            'text' => $this->_param_moderate_all),
+                      array('id' => '0',
+                            'text' => $this->_param_moderate_guests),
+                      array('id' => '-1',
+                            'text' => $this->_param_no_moderation));
+
+      $field = '<h4>' . $this->getTitle() . '</h4><div id="cfg' . $this->_module . '">' . HTML::radioField('configuration[' . $this->_key . ']', $values, $this->getRaw()) . '</div>';
+
+      $field .= <<<EOT
+<script>
+$('#cfg{$this->_module}').buttonset();
+</script>
+EOT;
+
+      return $field;
     }
   }
 ?>
