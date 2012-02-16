@@ -33,25 +33,19 @@
   <fieldset>
 
 <?php
-  $keys = '';
-
   foreach ( $OSCOM_ObjectInfo->get('keys') as $key ) {
-    $Qkey = $OSCOM_PDO->prepare('select configuration_title, configuration_value, configuration_description, use_function, set_function from :table_configuration where configuration_key = :configuration_key');
+    $Qkey = $OSCOM_PDO->prepare('select configuration_id from :table_configuration where configuration_key = :configuration_key');
     $Qkey->bindValue(':configuration_key', $key);
     $Qkey->execute();
 
-    $keys .= '<p><label for="' . $key . '">' . $Qkey->value('configuration_title') . '</label><br />' . $Qkey->value('configuration_description');
+    $OSCOM_ConfigObjectInfo = new ObjectInfo(Configuration::getEntry($Qkey->valueInt('configuration_id')));
+?>
 
-    if ( strlen($Qkey->value('set_function')) > 0 ) {
-      $keys .= Configuration::callUserFunc($Qkey->value('set_function'), $Qkey->value('configuration_value'), $key);
-    } else {
-      $keys .= HTML::inputField('configuration[' . $key . ']', $Qkey->value('configuration_value'));
-    }
+    <p><?php echo $OSCOM_ConfigObjectInfo->get('configuration_field'); ?></p>
+    <p><?php echo $OSCOM_ConfigObjectInfo->get('configuration_description'); ?></p>
 
-    $keys .= '</p>';
+<?php
   }
-
-  echo $keys;
 ?>
 
   </fieldset>

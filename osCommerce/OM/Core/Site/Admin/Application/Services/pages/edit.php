@@ -30,27 +30,25 @@
 
   <p><?php echo OSCOM::getDef('introduction_edit_service_module'); ?></p>
 
+  <fieldset>
+
 <?php
-  $keys = '';
-
   foreach ( $OSCOM_ObjectInfo->get('keys') as $key ) {
-    $key_data = OSCOM::callDB('Admin\Configuration\EntryGet', array('key' => $key));
+    $Qkey = $OSCOM_PDO->prepare('select configuration_id from :table_configuration where configuration_key = :configuration_key');
+    $Qkey->bindValue(':configuration_key', $key);
+    $Qkey->execute();
 
-    $keys .= '<b>' . $key_data['configuration_title'] . '</b><br />' . $key_data['configuration_description'] . '<br />';
-
-    if ( strlen($key_data['set_function']) > 0 ) {
-      $keys .= Configuration::callUserFunc($key_data['set_function'], $key_data['configuration_value'], $key);
-    } else {
-      $keys .= HTML::inputField('configuration[' . $key . ']', $key_data['configuration_value']);
-    }
-
-    $keys .= '<br /><br />';
-  }
-
-  $keys = substr($keys, 0, strrpos($keys, '<br /><br />'));
+    $OSCOM_ConfigObjectInfo = new ObjectInfo(Configuration::getEntry($Qkey->valueInt('configuration_id')));
 ?>
 
-  <p><?php echo $keys; ?></p>
+    <p><?php echo $OSCOM_ConfigObjectInfo->get('configuration_field'); ?></p>
+    <p><?php echo $OSCOM_ConfigObjectInfo->get('configuration_description'); ?></p>
+
+<?php
+  }
+?>
+
+  </fieldset>
 
   <p><?php echo HTML::button(array('priority' => 'primary', 'icon' => 'check', 'title' => OSCOM::getDef('button_save'))) . ' ' . HTML::button(array('href' => OSCOM::getLink(), 'priority' => 'secondary', 'icon' => 'close', 'title' => OSCOM::getDef('button_cancel'))); ?></p>
 
