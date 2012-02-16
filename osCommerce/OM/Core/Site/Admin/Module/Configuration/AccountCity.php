@@ -15,10 +15,8 @@
       $field = '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw(), 'id="cfg' . $this->_module . '"');
 
       $field .= <<<EOT
-<div class="sliderContainer">
-  <div class="sliderValue" id="sliderValue{$this->_module}">{$this->getRaw()}</div>
-  <div id="slider{$this->_module}" style="width: 92%;"></div>
-</div>
+<div id="sliderValue{$this->_module}" class="sliderValue">{$this->get()}</div>
+<div id="slider{$this->_module}" class="slider"></div>
 <script>
 $(function() {
   $('#cfg{$this->_module}').hide();

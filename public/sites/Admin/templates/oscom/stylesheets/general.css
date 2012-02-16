@@ -318,14 +318,16 @@ a:hover {
   font-size: 12px;
 }
 
-.dataForm .sliderContainer {
+.dataForm .slider {
   display: block;
   width: 40%;
   margin: 15px;
 }
 
-.dataForm .sliderContainer .sliderValue {
-  float: right;
+.dataForm .sliderValue {
+  float: left;
+  margin-left: 43%;
+  padding-top: 3px;
   font-weight: bold;
 }
 
