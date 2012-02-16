@@ -11,6 +11,10 @@
   use osCommerce\OM\Core\HTML;
   use osCommerce\OM\Core\Site\Shop\Weight;
 
+/**
+ * @since v3.0.4
+ */
+
   class ShippingWeightUnit extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function get() {
       return Weight::getTitle($this->getRaw());

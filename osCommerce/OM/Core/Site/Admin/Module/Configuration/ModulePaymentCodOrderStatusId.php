@@ -12,6 +12,10 @@
   use osCommerce\OM\Core\OSCOM;
   use osCommerce\OM\Core\Registry;
 
+/**
+ * @since v3.0.4
+ */
+
   class ModulePaymentCodOrderStatusId extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function get() {
       $OSCOM_PDO = Registry::get('PDO');

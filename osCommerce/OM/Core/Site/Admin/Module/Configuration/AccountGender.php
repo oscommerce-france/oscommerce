@@ -11,6 +11,10 @@
   use osCommerce\OM\Core\HTML;
   use osCommerce\OM\Core\OSCOM;
 
+/**
+ * @since v3.0.4
+ */
+
   class AccountGender extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     protected $_param_required;
     protected $_param_not_required;

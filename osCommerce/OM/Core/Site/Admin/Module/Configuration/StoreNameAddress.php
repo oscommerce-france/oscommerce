@@ -10,6 +10,10 @@
 
   use osCommerce\OM\Core\HTML;
 
+/**
+ * @since v3.0.4
+ */
+
   class StoreNameAddress extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function getField() {
       return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::textareaField('configuration[' . $this->_key . ']', $this->getRaw(), 35, 5, 'id="cfg' . $this->_module . '"');

@@ -11,6 +11,10 @@
   use osCommerce\OM\Core\HTML;
   use osCommerce\OM\Core\OSCOM;
 
+/**
+ * @since v3.0.4
+ */
+
   class ModulePaymentCodStatus extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     protected $_param_enabled;
     protected $_param_disabled;

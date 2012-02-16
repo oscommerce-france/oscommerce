@@ -10,6 +10,10 @@
 
   use osCommerce\OM\Core\HTML;
 
+/**
+ * @since v3.0.4
+ */
+
   class ServiceOutputCompressionGzipLevel extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function getField() {
       $field = '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw(), 'id="cfg' . $this->_module . '"');

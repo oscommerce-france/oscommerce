@@ -11,6 +11,10 @@
   use osCommerce\OM\Core\HTML;
   use osCommerce\OM\Core\Site\Shop\Address;
 
+/**
+ * @since v3.0.4
+ */
+
   class ShippingOriginCountry extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function get() {
       return Address::getCountryName($this->getRaw());
