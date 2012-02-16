@@ -10,14 +10,40 @@
 
   use osCommerce\OM\Core\HTML;
   use osCommerce\OM\Core\OSCOM;
+  use osCommerce\OM\Core\Registry;
 
   class ModuleShippingFlatTaxClass extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function get() {
-      return parent::get();
+      $OSCOM_PDO = Registry::get('PDO');
+      $OSCOM_Language = Registry::get('Language');
+
+      if ( $this->getRaw() < 1 ) {
+        return OSCOM::getDef('parameter_none');
+      }
+
+      $Qclass = $OSCOM_PDO->prepare('select tax_class_title from :table_tax_class where tax_class_id = :tax_class_id');
+      $Qclass->bindInt(':tax_class_id', $this->getRaw());
+      $Qclass->execute();
+
+      return $Qclass->value('tax_class_title');
     }
 
     public function getField() {
-      return parent::getField();
+      $OSCOM_Language = Registry::get('Language');
+      $OSCOM_PDO = Registry::get('PDO');
+
+      $tax_class_array = array(array('id' => '0',
+                                     'text' => OSCOM::getDef('parameter_none')));
+
+      $Qclasses = $OSCOM_PDO->query('select tax_class_id, tax_class_title from :table_tax_class order by tax_class_title');
+      $Qclasses->execute();
+
+      while ( $Qclasses->fetch() ) {
+        $tax_class_array[] = array('id' => $Qclasses->valueInt('tax_class_id'),
+                                   'text' => $Qclasses->value('tax_class_title'));
+      }
+
+      return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::selectMenu('configuration[' . $this->_key . ']', $tax_class_array, $this->getRaw(), 'id="cfg' . $this->_module . '"');
     }
   }
 ?>

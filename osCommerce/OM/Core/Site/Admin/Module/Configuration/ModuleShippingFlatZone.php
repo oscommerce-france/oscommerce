@@ -10,14 +10,39 @@
 
   use osCommerce\OM\Core\HTML;
   use osCommerce\OM\Core\OSCOM;
+  use osCommerce\OM\Core\Registry;
 
   class ModuleShippingFlatZone extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function get() {
-      return parent::get();
+      $OSCOM_PDO = Registry::get('PDO');
+      $OSCOM_Language = Registry::get('Language');
+
+      if ( $this->getRaw() == '0' ) {
+        return OSCOM::getDef('parameter_none');
+      }
+
+      $Qclass = $OSCOM_PDO->prepare('select geo_zone_name from :table_geo_zones where geo_zone_id = :geo_zone_id');
+      $Qclass->bindInt(':geo_zone_id', $this->getRaw());
+      $Qclass->execute();
+
+      return $Qclass->value('geo_zone_name');
     }
 
     public function getField() {
-      return parent::getField();
+      $OSCOM_PDO = Registry::get('PDO');
+
+      $zone_class_array = array(array('id' => '0',
+                                      'text' => OSCOM::getDef('parameter_none')));
+
+      $Qzones = $OSCOM_PDO->query('select geo_zone_id, geo_zone_name from :table_geo_zones order by geo_zone_name');
+      $Qzones->execute();
+
+      while ( $Qzones->fetch() ) {
+        $zone_class_array[] = array('id' => $Qzones->valueInt('geo_zone_id'),
+                                    'text' => $Qzones->value('geo_zone_name'));
+      }
+
+      return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::selectMenu('configuration[' . $this->_key . ']', $zone_class_array, $this->getRaw(), 'id="cfg' . $this->_module . '"');
     }
   }
 ?>

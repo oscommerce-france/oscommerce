@@ -12,12 +12,43 @@
   use osCommerce\OM\Core\OSCOM;
 
   class ModuleShippingFlatStatus extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+    protected $_param_enabled;
+    protected $_param_disabled;
+
+    public function __construct($key, $module = null) {
+      parent::__construct($key, $module);
+
+      $this->_param_enabled = OSCOM::getDef('parameter_enabled');
+      $this->_param_disabled = OSCOM::getDef('parameter_disabled');
+    }
+
     public function get() {
-      return parent::get();
+      switch ( $this->getRaw() ) {
+        case 'True':
+          return $this->_param_enabled;
+
+        case 'False':
+          return $this->_param_disabled;
+      }
+
+      return $this->getRaw();
     }
 
     public function getField() {
-      return parent::getField();
+      $values = array(array('id' => 'True',
+                            'text' => $this->_param_enabled),
+                      array('id' => 'False',
+                            'text' => $this->_param_disabled));
+
+      $field = '<h4>' . $this->getTitle() . '</h4><div id="cfg' . $this->_module . '">' . HTML::radioField('configuration[' . $this->_key . ']', $values, $this->getRaw()) . '</div>';
+
+      $field .= <<<EOT
+<script>
+$('#cfg{$this->_module}').buttonset();
+</script>
+EOT;
+
+      return $field;
     }
   }
 ?>
