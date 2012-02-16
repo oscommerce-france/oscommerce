@@ -12,12 +12,43 @@
   use osCommerce\OM\Core\OSCOM;
 
   class ServiceSessionCheckIpAddress extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+    protected $_param_true;
+    protected $_param_false;
+
+    public function __construct($key, $module = null) {
+      parent::__construct($key, $module);
+
+      $this->_param_true = OSCOM::getDef('parameter_true');
+      $this->_param_false = OSCOM::getDef('parameter_false');
+    }
+
     public function get() {
-      return parent::get();
+      switch ( $this->getRaw() ) {
+        case '1':
+          return $this->_param_true;
+
+        case '-1':
+          return $this->_param_false;
+      }
+
+      return $this->getRaw();
     }
 
     public function getField() {
-      return parent::getField();
+      $values = array(array('id' => '1',
+                            'text' => $this->_param_true),
+                      array('id' => '-1',
+                            'text' => $this->_param_false));
+
+      $field = '<h4>' . $this->getTitle() . '</h4><div id="cfg' . $this->_module . '">' . HTML::radioField('configuration[' . $this->_key . ']', $values, $this->getRaw()) . '</div>';
+
+      $field .= <<<EOT
+<script>
+$('#cfg{$this->_module}').buttonset();
+</script>
+EOT;
+
+      return $field;
     }
   }
 ?>
