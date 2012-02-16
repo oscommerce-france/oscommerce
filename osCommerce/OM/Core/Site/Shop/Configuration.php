@@ -9,7 +9,11 @@
   namespace osCommerce\OM\Core\Site\Shop;
 
   use osCommerce\OM\Core\OSCOM;
-
+  
+/**
+ * @since v3.0.4
+ */
+ 
   class Configuration {
     static public function load() {
       foreach ( OSCOM::callDB('Shop\GetConfiguration', null, 'Site') as $param ) {
