@@ -10,6 +10,10 @@
 
   use osCommerce\OM\Core\HTML;
 
+/**
+ * @since v3.0.4
+ */
+
   class EmailTransport extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     protected $_param_sendmail;
     protected $_param_smtp;
