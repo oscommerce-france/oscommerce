@@ -11,6 +11,10 @@
   use osCommerce\OM\Core\HTML;
   use osCommerce\OM\Core\OSCOM;
   use osCommerce\OM\Core\Registry;
+  
+/**
+ * @since v3.0.4
+ */
 
   class ConfigurationModule {
     protected $_key;

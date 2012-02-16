@@ -7,6 +7,10 @@
  */
 
   namespace osCommerce\OM\Core\Site\Admin;
+  
+/**
+ * @since v3.0.4
+ */
 
   class Configuration extends \osCommerce\OM\Core\Site\Shop\Configuration {
     static public function initialize($key) {
