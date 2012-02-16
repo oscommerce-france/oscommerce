@@ -9,15 +9,23 @@
   namespace osCommerce\OM\Core\Site\Admin\Module\Configuration;
 
   use osCommerce\OM\Core\HTML;
-  use osCommerce\OM\Core\OSCOM;
+  use osCommerce\OM\Core\Site\Shop\Address;
 
   class StoreZone extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function get() {
-      return parent::get();
+      return Address::getZoneName($this->getRaw());
     }
 
     public function getField() {
-      return parent::getField();
+      $zones_array = array();
+
+      foreach ( Address::getZones() as $zone ) {
+        $zones_array[] = array('id' => $zone['id'],
+                               'text' => $zone['name'],
+                               'group' => $zone['country_name']);
+      }
+
+      return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::selectMenu('configuration[' . $this->_key . ']', $zones_array, $this->getRaw(), 'id="cfg' . $this->_module . '"');
     }
   }
 ?>

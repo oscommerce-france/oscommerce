@@ -9,15 +9,10 @@
   namespace osCommerce\OM\Core\Site\Admin\Module\Configuration;
 
   use osCommerce\OM\Core\HTML;
-  use osCommerce\OM\Core\OSCOM;
 
   class StoreNameAddress extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
-    public function get() {
-      return parent::get();
-    }
-
     public function getField() {
-      return parent::getField();
+      return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::textareaField('configuration[' . $this->_key . ']', $this->getRaw(), 35, 5, 'id="cfg' . $this->_module . '"');
     }
   }
 ?>

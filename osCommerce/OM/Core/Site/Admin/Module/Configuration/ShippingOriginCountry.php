@@ -9,15 +9,22 @@
   namespace osCommerce\OM\Core\Site\Admin\Module\Configuration;
 
   use osCommerce\OM\Core\HTML;
-  use osCommerce\OM\Core\OSCOM;
+  use osCommerce\OM\Core\Site\Shop\Address;
 
   class ShippingOriginCountry extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function get() {
-      return parent::get();
+      return Address::getCountryName($this->getRaw());
     }
 
     public function getField() {
-      return parent::getField();
+      $countries_array = array();
+
+      foreach ( Address::getCountries() as $country ) {
+        $countries_array[] = array('id' => $country['id'],
+                                   'text' => $country['name']);
+      }
+
+      return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::selectMenu('configuration[' . $this->_key . ']', $countries_array, $this->getRaw(), 'id="cfg' . $this->_module . '"');
     }
   }
 ?>

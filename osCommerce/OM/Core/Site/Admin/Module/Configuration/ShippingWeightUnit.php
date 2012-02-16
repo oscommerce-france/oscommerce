@@ -9,15 +9,22 @@
   namespace osCommerce\OM\Core\Site\Admin\Module\Configuration;
 
   use osCommerce\OM\Core\HTML;
-  use osCommerce\OM\Core\OSCOM;
+  use osCommerce\OM\Core\Site\Shop\Weight;
 
   class ShippingWeightUnit extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function get() {
-      return parent::get();
+      return Weight::getTitle($this->getRaw());
     }
 
     public function getField() {
-      return parent::getField();
+      $weight_class_array = array();
+
+      foreach ( Weight::getClasses() as $class ) {
+        $weight_class_array[] = array('id' => $class['id'],
+                                      'text' => $class['title']);
+      }
+
+      return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::selectMenu('configuration[' . $this->_key . ']', $weight_class_array, $this->getRaw(), 'id="cfg' . $this->_module . '"');
     }
   }
 ?>
