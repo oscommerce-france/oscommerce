@@ -11,19 +11,11 @@
   namespace osCommerce\OM\Core\Site\Admin\Module\Configuration;
 
   use osCommerce\OM\Core\HTML;
-<<<<<<< HEAD
-  
-/**
- * @since v3.0.4
- */
- 
-=======
 
 /**
  * @since v3.0.4
  */
 
->>>>>>> 0020c8099f7a902132a01f6c8bf4f1ed1fff0391
   class AccountCity extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
     public function getField() {
       $field = '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw(), 'id="cfg' . $this->_module . '"');
