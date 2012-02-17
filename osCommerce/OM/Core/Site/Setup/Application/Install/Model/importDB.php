@@ -2,7 +2,7 @@
 /**
  * osCommerce Online Merchant
  * 
- * @copyright Copyright (c) 2011 osCommerce; http://www.oscommerce.com
+ * @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
@@ -68,7 +68,7 @@
       $installed = array();
 
       foreach ( $services as $service ) {
-        $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $service;
+        $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $service . '\\Controller';
         $module = new $class();
         $module->install();
 
