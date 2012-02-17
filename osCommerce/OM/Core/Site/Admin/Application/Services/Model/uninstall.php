@@ -2,7 +2,7 @@
 /**
  * osCommerce Online Merchant
  * 
- * @copyright Copyright (c) 2011 osCommerce; http://www.oscommerce.com
+ * @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
@@ -17,7 +17,7 @@
 
   class uninstall {
     public static function execute($module) {
-      $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $module;
+      $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $module . '\\Controller';
 
       if ( class_exists($class) ) {
         $OSCOM_SM = new $class();

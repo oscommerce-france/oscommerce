@@ -15,6 +15,8 @@
   class ConfigurationModule {
     protected $_key;
     protected $_module;
+    static protected $_sort;
+    static protected $_default;
 
     public function __construct($key, $module = null) {
       $this->_key = $key;
@@ -51,6 +53,14 @@
 
     public function getField() {
       return '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw(), 'id="cfg' . $this->_module . '"');
+    }
+
+    static public function getSort() {
+      return static::$_sort;
+    }
+
+    static public function getDefault() {
+      return static::$_default;
     }
   }
 ?>

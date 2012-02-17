@@ -2,7 +2,7 @@
 /**
  * osCommerce Online Merchant
  * 
- * @copyright Copyright (c) 2011 osCommerce; http://www.oscommerce.com
+ * @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
@@ -29,13 +29,14 @@
       $result = array('entries' => array());
 
       $DLsm = new DirectoryListing(OSCOM::BASE_DIRECTORY . 'Core/Site/Admin/Module/Service');
-      $DLsm->setIncludeDirectories(false);
+      $DLsm->setIncludeFiles(false);
+      $DLsm->setIncludeDirectories(true);
 
       foreach ( $DLsm->getFiles() as $file ) {
-        $module = substr($file['name'], 0, strrpos($file['name'], '.'));
+        $module = $file['name'];
 
         if ( !in_array($module, $installed) ) {
-          $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $module;
+          $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $module . '\\Controller';
 
           $OSCOM_SM = new $class();
 
