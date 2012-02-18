@@ -2,7 +2,7 @@
 /**
  * osCommerce Online Merchant
  * 
- * @copyright Copyright (c) 2011 osCommerce; http://www.oscommerce.com
+ * @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
@@ -23,7 +23,7 @@
       $data = HTML::sanitize(basename($_GET['code']));
 
       if ( Services::install($data) ) {
-        $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $data;
+        $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $data . '\\Controller';
         $OSCOM_SM = new $class();
 
         if ( $OSCOM_SM->hasKeys() ) {

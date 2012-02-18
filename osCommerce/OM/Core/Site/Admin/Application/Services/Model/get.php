@@ -2,7 +2,7 @@
 /**
  * osCommerce Online Merchant
  * 
- * @copyright Copyright (c) 2011 osCommerce; http://www.oscommerce.com
+ * @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
@@ -14,7 +14,7 @@
 
   class get {
     public static function execute($code, $key = null) {
-      $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $code;
+      $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $code . '\\Controller';
 
       $OSCOM_SM = new $class();
 

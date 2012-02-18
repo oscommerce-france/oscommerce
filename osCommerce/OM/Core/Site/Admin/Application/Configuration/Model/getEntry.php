@@ -12,12 +12,12 @@
   use osCommerce\OM\Core\Site\Admin\Configuration;
 
   class getEntry {
-    public static function execute($id, $key = null) {
+    public static function execute($id, $key = null, $namespace = null) {
       $data = array('id' => $id);
 
       $result = OSCOM::callDB('Admin\Configuration\EntryGet', $data);
 
-      $OSCOM_Config = Configuration::initialize($result['configuration_key']);
+      $OSCOM_Config = Configuration::initialize($result['configuration_key'], $namespace);
 
       $result['configuration_title'] = $OSCOM_Config->getTitle();
       $result['configuration_description'] = $OSCOM_Config->getDescription();

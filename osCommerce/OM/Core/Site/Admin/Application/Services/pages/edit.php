@@ -38,7 +38,7 @@
     $Qkey->bindValue(':configuration_key', $key);
     $Qkey->execute();
 
-    $OSCOM_ConfigObjectInfo = new ObjectInfo(Configuration::getEntry($Qkey->valueInt('configuration_id')));
+    $OSCOM_ConfigObjectInfo = new ObjectInfo(Configuration::getEntry($Qkey->valueInt('configuration_id'), null, 'Admin\\Module\\Service\\' . $OSCOM_ObjectInfo->get('code')));
 ?>
 
     <p><?php echo $OSCOM_ConfigObjectInfo->get('configuration_field'); ?></p>

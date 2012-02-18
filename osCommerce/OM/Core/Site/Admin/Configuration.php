@@ -13,11 +13,17 @@
  */
 
   class Configuration extends \osCommerce\OM\Core\Site\Shop\Configuration {
-    static public function initialize($key) {
+    static public function initialize($key, $namespace = null) {
+      if ( !isset($namespace) ) {
+        $namespace = 'Admin\\Module\\Configuration';
+      } else {
+        $namespace .= '\\Configuration';
+      }
+
       $module = static::getClassName($key);
 
-      if ( class_exists('osCommerce\\OM\\Core\\Site\\Admin\\Module\\Configuration\\' . $module) ) {
-        $ns_module = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Configuration\\' . $module;
+      if ( class_exists('osCommerce\\OM\\Core\\Site\\' . $namespace . '\\' . $module) ) {
+        $ns_module = 'osCommerce\\OM\\Core\\Site\\' . $namespace . '\\' . $module;
 
         return new $ns_module($key);
       }

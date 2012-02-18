@@ -2,7 +2,7 @@
 /**
  * osCommerce Online Merchant
  * 
- * @copyright Copyright (c) 2011 osCommerce; http://www.oscommerce.com
+ * @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
@@ -24,7 +24,7 @@
       $result['total'] = count($result['entries']);
 
       foreach ( $result['entries'] as &$module ) {
-        $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $module['code'];
+        $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $module['code'] . '\\Controller';
 
         $OSCOM_SM = new $class();
 
