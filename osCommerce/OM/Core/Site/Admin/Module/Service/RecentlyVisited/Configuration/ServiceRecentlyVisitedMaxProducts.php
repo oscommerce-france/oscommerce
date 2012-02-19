@@ -12,8 +12,10 @@
  * @since v3.0.4
  */
 
-  class ServiceRecentlyVisitedMaxProducts extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ServiceRecentlyVisitedMaxProducts extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 400;
     static protected $_default = '5';
+
+    public function initialize() { }
   }
 ?>

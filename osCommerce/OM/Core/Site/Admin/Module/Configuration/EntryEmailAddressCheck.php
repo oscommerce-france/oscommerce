@@ -15,13 +15,15 @@
  * @since v3.0.4
  */
 
-  class EntryEmailAddressCheck extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class EntryEmailAddressCheck extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     protected $_param_true;
     protected $_param_false;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
+    static protected $_sort = 400;
+    static protected $_default = '-1';
+    static protected $_group_id = 12;
 
+    public function initialize() {
       $this->_param_true = OSCOM::getDef('parameter_true');
       $this->_param_false = OSCOM::getDef('parameter_false');
     }

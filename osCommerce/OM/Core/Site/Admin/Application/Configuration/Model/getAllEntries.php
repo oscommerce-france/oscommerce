@@ -9,7 +9,6 @@
   namespace osCommerce\OM\Core\Site\Admin\Application\Configuration\Model;
 
   use osCommerce\OM\Core\OSCOM;
-  use osCommerce\OM\Core\Site\Admin\Configuration;
 
   class getAllEntries {
     public static function execute($group_id) {
@@ -18,7 +17,7 @@
       $result = OSCOM::callDB('Admin\Configuration\EntryGetAll', $data);
 
       foreach ( $result['entries'] as &$row ) {
-        $OSCOM_Config = Configuration::initialize($row['configuration_key']);
+        $OSCOM_Config = loadModule::execute($row['configuration_key']);
 
         $row['configuration_title'] = $OSCOM_Config->getTitle();
         $row['configuration_value'] = $OSCOM_Config->get();

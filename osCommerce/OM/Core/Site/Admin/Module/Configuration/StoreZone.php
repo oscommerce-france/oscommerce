@@ -15,11 +15,21 @@
  * @since v3.0.4
  */
 
+<<<<<<< HEAD
 /**
  * @since v3.0.4
  */
 
   class StoreZone extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+=======
+  class StoreZone extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
+    static protected $_sort = 700;
+    static protected $_default = '4031';
+    static protected $_group_id = 1;
+
+    public function initialize() { }
+
+>>>>>>> 3444889c77babdb77f48b170bfd915b029026330
     public function get() {
       return Address::getZoneName($this->getRaw());
     }

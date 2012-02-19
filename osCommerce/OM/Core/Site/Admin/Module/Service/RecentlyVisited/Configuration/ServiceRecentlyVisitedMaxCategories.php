@@ -12,8 +12,10 @@
  * @since v3.0.4
  */
 
-  class ServiceRecentlyVisitedMaxCategories extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ServiceRecentlyVisitedMaxCategories extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 600;
     static protected $_default = '3';
+
+    public function initialize() { }
   }
 ?>

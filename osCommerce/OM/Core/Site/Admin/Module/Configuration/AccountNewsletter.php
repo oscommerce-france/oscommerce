@@ -15,13 +15,15 @@
  * @since v3.0.4
  */
 
-  class AccountNewsletter extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class AccountNewsletter extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     protected $_param_required;
     protected $_param_disabled;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
+    static protected $_sort = 1600;
+    static protected $_default = '1';
+    static protected $_group_id = 5;
 
+    public function initialize() {
       $this->_param_required = OSCOM::getDef('parameter_required');
       $this->_param_disabled = OSCOM::getDef('parameter_disabled');
     }

@@ -15,11 +15,21 @@
  * @since v3.0.4
  */
 
+<<<<<<< HEAD
 /**
  * @since v3.0.4
  */
 
   class ShippingWeightUnit extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+=======
+  class ShippingWeightUnit extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
+    static protected $_sort = 600;
+    static protected $_default = '2';
+    static protected $_group_id = 7;
+
+    public function initialize() { }
+
+>>>>>>> 3444889c77babdb77f48b170bfd915b029026330
     public function get() {
       return Weight::getTitle($this->getRaw());
     }

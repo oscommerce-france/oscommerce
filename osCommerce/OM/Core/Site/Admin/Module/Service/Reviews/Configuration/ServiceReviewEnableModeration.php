@@ -15,7 +15,7 @@
  * @since v3.0.4
  */
 
-  class ServiceReviewEnableModeration extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ServiceReviewEnableModeration extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 300;
     static protected $_default = '-1';
 
@@ -23,9 +23,7 @@
     protected $_param_moderate_guests;
     protected $_param_no_moderation;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
-
+    public function initialize() {
       $this->_param_moderate_all = OSCOM::getDef('parameter_moderate_all');
       $this->_param_moderate_guests = OSCOM::getDef('parameter_moderate_guests');
       $this->_param_no_moderation = OSCOM::getDef('parameter_no_moderation');

@@ -15,16 +15,14 @@
  * @since v3.0.4
  */
 
-  class ServiceDebugCheckDownloadDirectory extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ServiceDebugCheckDownloadDirectory extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 1000;
     static protected $_default = '1';
 
     protected $_param_true;
     protected $_param_false;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
-
+    public function initialize() {
       $this->_param_true = OSCOM::getDef('parameter_true');
       $this->_param_false = OSCOM::getDef('parameter_false');
     }

@@ -12,8 +12,10 @@
  * @since v3.0.4
  */
 
-  class ServiceDebugExecutionTimeLog extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ServiceDebugExecutionTimeLog extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 300;
     static protected $_default = '';
+
+    public function initialize() { }
   }
 ?>

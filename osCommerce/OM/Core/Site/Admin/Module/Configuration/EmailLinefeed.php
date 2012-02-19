@@ -14,13 +14,15 @@
  * @since v3.0.4
  */
 
-  class EmailLinefeed extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class EmailLinefeed extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     protected $_param_lf;
     protected $_param_crlf;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
+    static protected $_sort = 200;
+    static protected $_default = 'LF';
+    static protected $_group_id = 12;
 
+    public function initialize() {
       $this->_param_lf = 'LF';
       $this->_param_crlf = 'CRLF';
     }
