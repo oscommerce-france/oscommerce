@@ -20,6 +20,10 @@
     protected $_param_not_required;
     protected $_param_disabled;
 
+    static protected $_sort = 1000;
+    static protected $_default = '1';
+    static protected $_group_id = 5;
+
     public function __construct($key, $module = null) {
       parent::__construct($key, $module);
 

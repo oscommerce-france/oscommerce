@@ -15,6 +15,10 @@
  */
 
   class AccountLastName extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+    static protected $_sort = 1200;
+    static protected $_default = '2';
+    static protected $_group_id = 5;
+
     public function getField() {
       $field = '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw(), 'id="cfg' . $this->_module . '"');
 

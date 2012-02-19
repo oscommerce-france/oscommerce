@@ -15,6 +15,10 @@
  */
 
   class AccountPassword extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+    static protected $_sort = 1500;
+    static protected $_default = '5';
+    static protected $_group_id = 5;
+
     public function getField() {
       $field = '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw(), 'id="cfg' . $this->_module . '"');
 

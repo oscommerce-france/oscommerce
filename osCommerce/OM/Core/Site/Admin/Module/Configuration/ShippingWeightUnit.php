@@ -16,6 +16,10 @@
  */
 
   class ShippingWeightUnit extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+    static protected $_sort = 600;
+    static protected $_default = '2';
+    static protected $_group_id = 7;
+
     public function get() {
       return Weight::getTitle($this->getRaw());
     }

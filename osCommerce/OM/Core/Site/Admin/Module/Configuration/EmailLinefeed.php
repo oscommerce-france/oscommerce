@@ -18,6 +18,10 @@
     protected $_param_lf;
     protected $_param_crlf;
 
+    static protected $_sort = 200;
+    static protected $_default = 'LF';
+    static protected $_group_id = 12;
+
     public function __construct($key, $module = null) {
       parent::__construct($key, $module);
 

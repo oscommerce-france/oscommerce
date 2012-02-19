@@ -18,6 +18,10 @@
     protected $_param_sendmail;
     protected $_param_smtp;
 
+    static protected $_sort = 100;
+    static protected $_default = 'sendmail';
+    static protected $_group_id = 12;
+
     public function __construct($key, $module = null) {
       parent::__construct($key, $module);
 
