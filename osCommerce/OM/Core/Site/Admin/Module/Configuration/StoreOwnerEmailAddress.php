@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class StoreOwnerEmailAddress extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class StoreOwnerEmailAddress extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 300;
     static protected $_default = 'root@localhost';
     static protected $_group_id = 1;
+
+    public function initialize() { }
   }
 ?>

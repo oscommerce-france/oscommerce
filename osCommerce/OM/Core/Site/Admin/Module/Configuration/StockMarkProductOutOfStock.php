@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class StockMarkProductOutOfStock extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class StockMarkProductOutOfStock extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 400;
     static protected $_default = '***';
     static protected $_group_id = 9;
+
+    public function initialize() { }
   }
 ?>

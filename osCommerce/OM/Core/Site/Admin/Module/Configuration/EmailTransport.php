@@ -14,7 +14,7 @@
  * @since v3.0.4
  */
 
-  class EmailTransport extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class EmailTransport extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     protected $_param_sendmail;
     protected $_param_smtp;
 
@@ -22,9 +22,7 @@
     static protected $_default = 'sendmail';
     static protected $_group_id = 12;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
-
+    public function initialize() {
       $this->_param_sendmail = 'Sendmail';
       $this->_param_smtp = 'SMTP';
     }

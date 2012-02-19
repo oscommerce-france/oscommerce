@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class MaxDisplayProductsNew extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class MaxDisplayProductsNew extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 1400;
     static protected $_default = '10';
     static protected $_group_id = 3;
+
+    public function initialize() { }
   }
 ?>

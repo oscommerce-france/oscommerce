@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class CcOwnerMinLength extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class CcOwnerMinLength extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 1200;
     static protected $_default = '3';
     static protected $_group_id = 2;
+
+    public function initialize() { }
   }
 ?>

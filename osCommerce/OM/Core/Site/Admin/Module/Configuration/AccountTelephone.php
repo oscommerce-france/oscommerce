@@ -15,7 +15,7 @@
  * @since v3.0.4
  */
 
-  class AccountTelephone extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class AccountTelephone extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     protected $_param_disabled;
     protected $_param_not_required;
 
@@ -23,9 +23,7 @@
     static protected $_default = '3';
     static protected $_group_id = 5;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
-
+    public function initialize() {
       $this->_param_disabled = OSCOM::getDef('parameter_disabled');
       $this->_param_not_required = OSCOM::getDef('parameter_not_required');
     }

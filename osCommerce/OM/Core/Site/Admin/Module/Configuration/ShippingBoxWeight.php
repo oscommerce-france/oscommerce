@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class ShippingBoxWeight extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ShippingBoxWeight extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 400;
     static protected $_default = '3';
     static protected $_group_id = 7;
+
+    public function initialize() { }
   }
 ?>

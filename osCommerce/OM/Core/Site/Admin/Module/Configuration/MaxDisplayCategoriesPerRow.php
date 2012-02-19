@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class MaxDisplayCategoriesPerRow extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class MaxDisplayCategoriesPerRow extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 1300;
     static protected $_default = '3';
     static protected $_group_id = 3;
+
+    public function initialize() { }
   }
 ?>

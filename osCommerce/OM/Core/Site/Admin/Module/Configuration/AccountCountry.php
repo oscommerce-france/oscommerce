@@ -15,16 +15,14 @@
  * @since v3.0.4
  */
 
-  class AccountCountry extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class AccountCountry extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     protected $_param_required;
 
     static protected $_sort = 2300;
     static protected $_default = '1';
     static protected $_group_id = 5;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
-
+    public function initialize() {
       $this->_param_required = OSCOM::getDef('parameter_required');
     }
 

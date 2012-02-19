@@ -18,9 +18,10 @@
       $result = OSCOM::callDB('Admin\Configuration\EntryFind', $data);
 
       foreach ( $result['entries'] as &$row ) {
-        if ( !empty($row['use_function']) ) {
-          $row['configuration_value'] = callUserFunc::execute($row['use_function'], $row['configuration_value']);
-        }
+        $OSCOM_Config = loadModule::execute($row['configuration_key']);
+
+        $row['configuration_title'] = $OSCOM_Config->getTitle();
+        $row['configuration_value'] = $OSCOM_Config->get();
       }
 
       return $result;

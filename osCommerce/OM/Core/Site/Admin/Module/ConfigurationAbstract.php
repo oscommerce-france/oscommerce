@@ -6,19 +6,21 @@
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
-  namespace osCommerce\OM\Core\Site\Admin;
+  namespace osCommerce\OM\Core\Site\Admin\Module;
 
   use osCommerce\OM\Core\HTML;
   use osCommerce\OM\Core\OSCOM;
   use osCommerce\OM\Core\Registry;
 
-  class ConfigurationModule {
+  abstract class ConfigurationAbstract {
     protected $_key;
     protected $_module;
 
     static protected $_sort;
     static protected $_default;
     static protected $_group_id = 6;
+
+    abstract protected function initialize();
 
     public function __construct() {
       $module = array_slice(explode('\\', get_called_class()), -1);
@@ -27,6 +29,8 @@
       $this->_key = strtoupper(implode('_', preg_split('/(?=[A-Z])/', $this->_module, null, PREG_SPLIT_NO_EMPTY)));
 
       Registry::get('Language')->loadIniFile('modules/Configuration/' . $this->_module . '.php');
+
+      $this->initialize();
     }
 
     public function getKey() {

@@ -12,8 +12,10 @@
  * @since v3.0.4
  */
 
-  class ServiceRecentlyVisitedMaxSearches extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ServiceRecentlyVisitedMaxSearches extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 800;
     static protected $_default = '3';
+
+    public function initialize() { }
   }
 ?>

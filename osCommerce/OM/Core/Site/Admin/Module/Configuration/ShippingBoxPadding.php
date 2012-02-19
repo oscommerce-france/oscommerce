@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class ShippingBoxPadding extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ShippingBoxPadding extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 500;
     static protected $_default = '10';
     static protected $_group_id = 7;
+
+    public function initialize() { }
   }
 ?>

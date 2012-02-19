@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class ProductListFilter extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ProductListFilter extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 900;
     static protected $_default = '1';
     static protected $_group_id = 8;
+
+    public function initialize() { }
   }
 ?>

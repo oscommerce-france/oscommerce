@@ -14,6 +14,7 @@
   use osCommerce\OM\Core\OSCOM;
   use osCommerce\OM\Core\Registry;
   use osCommerce\OM\Core\Session;
+  use osCommerce\OM\Core\Site\Shop\Configuration;
 
   class Controller implements \osCommerce\OM\Core\SiteInterface {
     protected static $_default_application = 'Dashboard';

@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class MaxAddressBookEntries extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class MaxAddressBookEntries extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 100;
     static protected $_default = '5';
     static protected $_group_id = 3;
+
+    public function initialize() { }
   }
 ?>

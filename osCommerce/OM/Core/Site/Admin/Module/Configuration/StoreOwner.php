@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class StoreOwner extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class StoreOwner extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 200;
     static protected $_default = 'Bud Spencer';
     static protected $_group_id = 1;
+
+    public function initialize() { }
   }
 ?>

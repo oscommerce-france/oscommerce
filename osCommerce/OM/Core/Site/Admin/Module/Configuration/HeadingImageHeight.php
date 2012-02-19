@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class HeadingImageHeight extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class HeadingImageHeight extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 400;
     static protected $_default = '40';
     static protected $_group_id = 4;
+
+    public function initialize() { }
   }
 ?>

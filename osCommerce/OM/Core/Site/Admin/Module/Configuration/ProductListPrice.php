@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class ProductListPrice extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ProductListPrice extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 500;
     static protected $_default = '3';
     static protected $_group_id = 8;
+
+    public function initialize() { }
   }
 ?>

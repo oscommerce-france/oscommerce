@@ -16,7 +16,9 @@
  * @since v3.0.4
  */
 
-  class ModuleShippingFlatZone extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ModuleShippingFlatZone extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
+    public function initialize() { }
+
     public function get() {
       $OSCOM_PDO = Registry::get('PDO');
       $OSCOM_Language = Registry::get('Language');

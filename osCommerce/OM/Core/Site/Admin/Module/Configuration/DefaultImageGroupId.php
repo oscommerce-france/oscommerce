@@ -12,8 +12,10 @@
  * @since v3.0.4
  */
 
-  class DefaultImageGroupId extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class DefaultImageGroupId extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 0;
     static protected $_default = '2';
+
+    public function initialize() { }
   }
 ?>

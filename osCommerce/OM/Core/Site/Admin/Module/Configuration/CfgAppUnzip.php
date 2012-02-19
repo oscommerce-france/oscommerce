@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class CfgAppUnzip extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class CfgAppUnzip extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 400;
     static protected $_default = '/usr/bin/unzip';
     static protected $_group_id = 18;
+
+    public function initialize() { }
   }
 ?>

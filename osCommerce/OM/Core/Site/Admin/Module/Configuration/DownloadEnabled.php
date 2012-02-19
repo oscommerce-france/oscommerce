@@ -15,7 +15,7 @@
  * @since v3.0.4
  */
 
-  class DownloadEnabled extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class DownloadEnabled extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     protected $_param_true;
     protected $_param_false;
 
@@ -23,9 +23,7 @@
     static protected $_default = '-1';
     static protected $_group_id = 13;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
-
+    public function initialize() {
       $this->_param_true = OSCOM::getDef('parameter_true');
       $this->_param_false = OSCOM::getDef('parameter_false');
     }

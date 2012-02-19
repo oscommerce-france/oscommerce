@@ -14,10 +14,12 @@
  * @since v3.0.4
  */
 
-  class AccountEmailAddress extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class AccountEmailAddress extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 1400;
     static protected $_default = '6';
     static protected $_group_id = 5;
+
+    public function initialize() { }
 
     public function getField() {
       $field = '<label for="cfg' . $this->_module . '">' . $this->getTitle() . '</label>' . HTML::inputField('configuration[' . $this->_key . ']', $this->getRaw(), 'id="cfg' . $this->_module . '"');

@@ -15,7 +15,7 @@
  * @since v3.0.4
  */
 
-  class ServiceReviewEnableReviews extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ServiceReviewEnableReviews extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 200;
     static protected $_default = '1';
 
@@ -23,9 +23,7 @@
     protected $_param_only_customers;
     protected $_param_only_purchased;
 
-    public function __construct($key, $module = null) {
-      parent::__construct($key, $module);
-
+    public function initialize() {
       $this->_param_allow_all = OSCOM::getDef('parameter_allow_all');
       $this->_param_only_customers = OSCOM::getDef('parameter_only_customers');
       $this->_param_only_purchased = OSCOM::getDef('parameter_only_purchased');

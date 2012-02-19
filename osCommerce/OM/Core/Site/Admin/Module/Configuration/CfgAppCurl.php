@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class CfgAppCurl extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class CfgAppCurl extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 500;
     static protected $_default = '/usr/bin/curl';
     static protected $_group_id = 18;
+
+    public function initialize() { }
   }
 ?>

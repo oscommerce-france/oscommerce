@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class ProductListManufacturer extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ProductListManufacturer extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 200;
     static protected $_default = '0';
     static protected $_group_id = 8;
+
+    public function initialize() { }
   }
 ?>

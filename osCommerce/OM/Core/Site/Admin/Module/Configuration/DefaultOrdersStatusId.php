@@ -12,8 +12,10 @@
  * @since v3.0.4
  */
 
-  class DefaultOrdersStatusId extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class DefaultOrdersStatusId extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 0;
     static protected $_default = '1';
+
+    public function initialize() { }
   }
 ?>

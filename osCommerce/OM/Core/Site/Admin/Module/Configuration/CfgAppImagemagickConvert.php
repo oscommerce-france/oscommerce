@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class CfgAppImagemagickConvert extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class CfgAppImagemagickConvert extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 600;
     static protected $_default = '/usr/bin/convert';
     static protected $_group_id = 18;
+
+    public function initialize() { }
   }
 ?>

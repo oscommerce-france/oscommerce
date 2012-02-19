@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class HeadingImageWidth extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class HeadingImageWidth extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 300;
     static protected $_default = '57';
     static protected $_group_id = 4;
+
+    public function initialize() { }
   }
 ?>

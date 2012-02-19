@@ -15,10 +15,12 @@
  * @since v3.0.4
  */
 
-  class ShippingOriginCountry extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class ShippingOriginCountry extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 100;
     static protected $_default = '223';
     static protected $_group_id = 7;
+
+    public function initialize() { }
 
     public function get() {
       return Address::getCountryName($this->getRaw());

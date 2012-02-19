@@ -12,9 +12,11 @@
  * @since v3.0.4
  */
 
-  class CfgAppGunzip extends \osCommerce\OM\Core\Site\Admin\ConfigurationModule {
+  class CfgAppGunzip extends \osCommerce\OM\Core\Site\Admin\Module\ConfigurationAbstract {
     static protected $_sort = 200;
     static protected $_default = '/usr/bin/gunzip';
     static protected $_group_id = 18;
+
+    public function initialize() { }
   }
 ?>
