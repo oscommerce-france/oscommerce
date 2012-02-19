@@ -60,26 +60,20 @@
     }
 
     public function install() {
-      $data = array();
-
       foreach ( $this->getConfigurationModules() as $cfg_module ) {
         $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $this->code . '\\Configuration\\' . $cfg_module;
 
-        $data[] = array('key' => strtoupper(implode('_', preg_split('/(?=[A-Z])/', $cfg_module, null, PREG_SPLIT_NO_EMPTY))),
-                        'value' => call_user_func(array($class, 'getDefault')),
-                        'group_id' => '6',
-                        'title' => '', // HPDL
-                        'description' => ''); // HPDL
-      }
-
-      if ( !empty($data) ) {
-        OSCOM::callDB('Admin\InsertConfigurationParameters', $data, 'Site');
+        $module = new $class();
+        $module->install();
       }
     }
 
     public function remove() {
-      if ( $this->hasKeys() ) {
-        OSCOM::callDB('Admin\DeleteConfigurationParameters', $this->keys(), 'Site');
+      foreach ( $this->getConfigurationModules() as $cfg_module ) {
+        $class = 'osCommerce\\OM\\Core\\Site\\Admin\\Module\\Service\\' . $this->code . '\\Configuration\\' . $cfg_module;
+
+        $module = new $class();
+        $module->uninstall();
       }
     }
 
