@@ -20,7 +20,7 @@
 
       $result = array('entries' => array());
 
-      $Qcfg = $OSCOM_PDO->prepare('select * from :table_configuration where configuration_group_id = :configuration_group_id order by sort_order, configuration_title');
+      $Qcfg = $OSCOM_PDO->prepare('select * from :table_configuration where configuration_group_id = :configuration_group_id');
       $Qcfg->bindInt(':configuration_group_id', $data['group_id']);
       $Qcfg->execute();
 

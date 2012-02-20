@@ -21,7 +21,12 @@
 
         $row['configuration_title'] = $OSCOM_Config->getTitle();
         $row['configuration_value'] = $OSCOM_Config->get();
+        $row['sort_order'] = $OSCOM_Config->getSort();
       }
+
+      usort($result['entries'], function($a, $b) {
+        return strnatcmp($a['sort_order'], $b['sort_order']);
+      });
 
       return $result;
     }

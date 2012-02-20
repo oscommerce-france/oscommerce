@@ -14,7 +14,7 @@
  * @since v3.0.4
  */
 
-  class Controller extends \osCommerce\OM\Core\Site\Admin\ServiceAbstract {
+  class Controller extends \osCommerce\OM\Core\Site\Admin\Module\ServiceAbstract {
     var $uninstallable = false;
     var $depends = 'Session';
 

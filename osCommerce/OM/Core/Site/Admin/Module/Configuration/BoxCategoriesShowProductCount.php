@@ -19,6 +19,10 @@
     protected $_param_true;
     protected $_param_false;
 
+    static protected $_sort = 0;
+    static protected $_default = '1';
+    static protected $_group_id = 6;
+
     public function initialize() {
       $this->_param_true = OSCOM::getDef('parameter_true');
       $this->_param_false = OSCOM::getDef('parameter_false');

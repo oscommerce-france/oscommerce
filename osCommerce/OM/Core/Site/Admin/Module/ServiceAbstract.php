@@ -6,14 +6,14 @@
  * @license BSD License; http://www.oscommerce.com/bsdlicense.txt
  */
 
-  namespace osCommerce\OM\Core\Site\Admin;
+  namespace osCommerce\OM\Core\Site\Admin\Module;
 
   use osCommerce\OM\Core\DirectoryListing;
   use osCommerce\OM\Core\OSCOM;
   use osCommerce\OM\Core\Registry;
 
 /**
- * @since v3.0.2
+ * @since v3.0.4
  */
 
   abstract class ServiceAbstract {
@@ -98,10 +98,6 @@
 
       return $result;
     }
-
-/**
- * @since v3.0.4
- */
 
     public function getConfigurationModules() {
       $modules = array();

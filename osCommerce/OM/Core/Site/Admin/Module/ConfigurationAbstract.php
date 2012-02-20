@@ -64,9 +64,7 @@
     public function install() {
       $data = array('key' => $this->getKey(),
                     'value' => static::getDefault(),
-                    'group_id' => static::getGroupId(),
-                    'title' => '', // HPDL
-                    'description' => ''); // HPDL
+                    'group_id' => static::getGroupId());
 
       OSCOM::callDB('Admin\InsertConfigurationParameters', $data, 'Site');
     }
