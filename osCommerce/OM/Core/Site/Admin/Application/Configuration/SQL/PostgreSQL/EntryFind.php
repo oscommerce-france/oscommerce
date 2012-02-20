@@ -20,7 +20,7 @@
 
       $result = array('entries' => array());
 
-      $Qcfg = $OSCOM_PDO->prepare('select * from :table_configuration where configuration_group_id = :configuration_group_id and (configuration_key ilike :configuration_key or configuration_value ilike :configuration_value) order by sort_order, configuration_title');
+      $Qcfg = $OSCOM_PDO->prepare('select * from :table_configuration where configuration_group_id = :configuration_group_id and (configuration_key ilike :configuration_key or configuration_value ilike :configuration_value)');
       $Qcfg->bindInt(':configuration_group_id', $data['group_id']);
       $Qcfg->bindValue(':configuration_key', '%' . $data['search'] . '%');
       $Qcfg->bindValue(':configuration_value', '%' . $data['search'] . '%');
