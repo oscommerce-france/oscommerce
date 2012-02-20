@@ -131,7 +131,8 @@ CREATE TABLE osc_configuration (
   configuration_value text NOT NULL,
   configuration_group_id int unsigned NOT NULL,
   PRIMARY KEY (configuration_id),
-  KEY idx_configuration_group_id (configuration_group_id)
+  KEY idx_configuration_key (configuration_key),
+  KEY idx_configuration_group_id (configuration_group_id),
 ) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 DROP TABLE IF EXISTS osc_configuration_group;

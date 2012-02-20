@@ -140,6 +140,7 @@ CREATE TABLE osc_configuration (
   PRIMARY KEY (configuration_id)
 );
 
+CREATE INDEX osc_configuration_configuration_key_idx ON osc_configuration USING btree (configuration_key);
 CREATE INDEX osc_configuration_configuration_group_id_idx ON osc_configuration USING btree (configuration_group_id);
 
 DROP TABLE IF EXISTS osc_configuration_group CASCADE;
