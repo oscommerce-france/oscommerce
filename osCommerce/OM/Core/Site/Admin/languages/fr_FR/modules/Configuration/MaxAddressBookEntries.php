@@ -3,5 +3,5 @@
 # @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
-cfg_max_address_book_entries_title = Address Book Entries
-cfg_max_address_book_entries_description = Maximum address book entries a customer is allowed to have
+cfg_max_address_book_entries_title = Entrées du carnet d'adresses
+cfg_max_address_book_entries_description = Nombre maxi d'entrées dans le carnet d'adresses qu'un client peut créer

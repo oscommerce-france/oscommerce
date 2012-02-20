@@ -4,4 +4,4 @@
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
 cfg_cfg_app_unzip_title = UNZIP
-cfg_cfg_app_unzip_description = The program location to unzip.
+cfg_cfg_app_unzip_description = Localisation de unzip.

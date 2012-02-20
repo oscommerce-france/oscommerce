@@ -3,5 +3,5 @@
 # @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
-cfg_cfg_credit_cards_verify_with_regexp_title = Verify With Regular Expressions
-cfg_cfg_credit_cards_verify_with_regexp_description = Verify credit card numbers with server-side regular expression patterns.
+cfg_cfg_credit_cards_verify_with_regexp_title = Vérifier par une expression régulière
+cfg_cfg_credit_cards_verify_with_regexp_description = Vérifier le numéro de carte de crédit avec un masque ExPreg coté serveur.

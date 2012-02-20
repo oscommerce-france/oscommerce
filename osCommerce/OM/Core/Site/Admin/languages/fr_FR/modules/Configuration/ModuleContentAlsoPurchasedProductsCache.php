@@ -3,5 +3,5 @@
 # @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
-cfg_module_content_also_purchased_products_cache_title = Cache Contents
-cfg_module_content_also_purchased_products_cache_description = Number of minutes to keep the contents cached (0 = no cache)
+cfg_module_content_also_purchased_products_cache_title = Durée du cache aussi acheté
+cfg_module_content_also_purchased_products_cache_description = Nombre de minutes pour conserver en cache la liste des produits aussi achetés (0 = pas de cache)

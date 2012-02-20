@@ -3,5 +3,5 @@
 # @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
-cfg_stock_allow_checkout_title = Allow Checkout
-cfg_stock_allow_checkout_description = Allow customer to checkout even if there is insufficient stock
+cfg_stock_allow_checkout_title = Commande hors stock
+cfg_stock_allow_checkout_description = Autoriser un client à commander un produit même si le stock est insuffisant

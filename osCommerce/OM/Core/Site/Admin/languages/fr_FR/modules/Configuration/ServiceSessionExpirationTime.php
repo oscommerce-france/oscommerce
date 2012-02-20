@@ -3,5 +3,5 @@
 # @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
-cfg_service_session_expiration_time_title = Session Expiration Time
-cfg_service_session_expiration_time_description = The time (in minutes) to keep sessions active for. A value of 0 means until the browser is closed.
+cfg_service_session_expiration_time_title = Durée de session
+cfg_service_session_expiration_time_description = La durée (en minutes) d'une session. La valeur 0 signifie jusqu'à la fermeture du navigateur.

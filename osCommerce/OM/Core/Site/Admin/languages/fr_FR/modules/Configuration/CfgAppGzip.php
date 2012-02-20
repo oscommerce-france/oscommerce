@@ -4,4 +4,4 @@
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
 cfg_cfg_app_gzip_title = GZIP
-cfg_cfg_app_gzip_description = The program location to gzip.
+cfg_cfg_app_gzip_description = Localisation de gzip.

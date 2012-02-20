@@ -3,5 +3,5 @@
 # @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
-cfg_module_content_also_purchased_min_display_title = Minimum Entries To Display
-cfg_module_content_also_purchased_min_display_description = Minimum number of also purchased products to display
+cfg_module_content_also_purchased_min_display_title = Mini de produits aussi achetés
+cfg_module_content_also_purchased_min_display_description = Nombre minimum de produits 'aussi achetés' à afficher

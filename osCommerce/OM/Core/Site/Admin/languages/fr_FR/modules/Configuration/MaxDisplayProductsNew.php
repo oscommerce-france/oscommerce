@@ -3,5 +3,5 @@
 # @copyright Copyright (c) 2012 osCommerce; http://www.oscommerce.com
 # @license BSD License; http://www.oscommerce.com/bsdlicense.txt
 
-cfg_max_display_products_new_title = New Products Listing
-cfg_max_display_products_new_description = Maximum number of new products to display in new products page
+cfg_max_display_products_new_title = Liste des nouveaux produits
+cfg_max_display_products_new_description = Nombre maxi de produits à afficher dans la page Nouveaux Produits
