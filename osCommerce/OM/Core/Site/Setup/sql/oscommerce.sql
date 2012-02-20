@@ -127,16 +127,9 @@ CREATE TABLE osc_categories_description (
 DROP TABLE IF EXISTS osc_configuration;
 CREATE TABLE osc_configuration (
   configuration_id int unsigned NOT NULL AUTO_INCREMENT,
-  configuration_title varchar(255) NOT NULL,
   configuration_key varchar(255) NOT NULL,
   configuration_value text NOT NULL,
-  configuration_description varchar(255) NOT NULL,
   configuration_group_id int unsigned NOT NULL,
-  sort_order int,
-  last_modified datetime,
-  date_added datetime NOT NULL,
-  use_function varchar(255) NULL,
-  set_function varchar(255) NULL,
   PRIMARY KEY (configuration_id),
   KEY idx_configuration_group_id (configuration_group_id)
 ) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci;

@@ -134,16 +134,9 @@ CREATE INDEX osc_categories_description_categories_name_idx ON osc_categories_de
 DROP TABLE IF EXISTS osc_configuration CASCADE;
 CREATE TABLE osc_configuration (
   configuration_id serial NOT NULL,
-  configuration_title varchar(255) NOT NULL,
   configuration_key varchar(255) NOT NULL,
   configuration_value text,
-  configuration_description varchar(255) NOT NULL,
   configuration_group_id integer NOT NULL,
-  sort_order integer,
-  last_modified timestamp(0),
-  date_added timestamp(0) NOT NULL,
-  use_function varchar(255) NULL,
-  set_function varchar(255) NULL,
   PRIMARY KEY (configuration_id)
 );
 
