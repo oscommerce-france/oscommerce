@@ -14,7 +14,7 @@
  * @since v3.0.4
  */
 
-  class Controller extends \osCommerce\OM\Core\Site\Admin\ServiceAbstract {
+  class Controller extends \osCommerce\OM\Core\Site\Admin\Module\ServiceAbstract {
     protected function initialize() {
       $this->title = OSCOM::getDef('services_reviews_title');
       $this->description = OSCOM::getDef('services_reviews_description');
